@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "orders": "الطلبات",
+    "operations": "العمليات",
+    "e-invoice": "الفاتورة الإلكترونية",
+    "products": "المنتجات",
+    "shipments": "الشحنات",
+    "reports": "التقارير",
+    "search": "البحث",
+    "get-help": "الحصول على مساعدة",
+    "settings": "الإعدادات",
+    "quick-create": "إنشاء سريع"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "recent-shipments": "الشحنات الأخيرة"
+  },
+  "cards": {
+    "total-shipments": "إجمالي الشحنات",
+    "new-customers": "عملاء جدد",
+    "active-accounts": "الحسابات النشطة",
+    "growth-rate": "معدل النمو",
+    "vs-last-month": "مقابل الشهر الماضي"
+  },
+  "charts": {
+    "domestic": "محلي",
+    "international": "دولي",
+    "express": "سريع",
+    "economy": "اقتصادي",
+    "shipment-breakdown": "تفصيل الشحنات",
+    "carrier-breakdown": "تفصيل شركات الشحن",
+    "by-shipment-volume": "حسب حجم الشحنات",
+    "by-type": "حسب النوع",
+    "total-shipments": "إجمالي الشحنات",
+    "showing-total-shipments": "عرض إجمالي الشحنات للفترة المحددة",
+    "shipments": "الشحنات",
+    "last-3-months": "آخر 3 أشهر",
+    "last-30-days": "آخر 30 يوم",
+    "last-7-days": "آخر 7 أيام",
+    "dhl": "دي إتش إل",
+    "fedex": "فيدكس",
+    "aramex": "أرامكس",
+    "ups": "يو بي إس",
+    "other": "أخرى"
+  },
+  "common": {
+    "shiptag": "شيب تاغ"
+  },
+  "accessibility": {
+    "toggle-language": "تبديل اللغة",
+    "toggle-theme": "تبديل المظهر",
+    "quick-create-tooltip": "إنشاء سريع",
+    "toggle-sidebar": "تبديل الشريط الجانبي"
+  },
+  "table": {
+    "drag-to-reorder": "اسحب لإعادة الترتيب",
+    "select-all": "تحديد الكل",
+    "select-row": "تحديد الصف",
+    "header": "العنوان",
+    "section-type": "نوع القسم",
+    "status": "الحالة",
+    "done": "مكتمل",
+    "target": "الهدف",
+    "limit": "الحد الأقصى",
+    "reviewer": "المراجع",
+    "assign-reviewer": "تعيين مراجع",
+    "open-menu": "فتح القائمة",
+    "edit": "تعديل",
+    "make-copy": "إنشاء نسخة",
+    "favorite": "المفضلة",
+    "delete": "حذف",
+    "view": "عرض",
+    "select-view": "اختر عرض",
+    "outline": "مخطط",
+    "past-performance": "الأداء السابق",
+    "key-personnel": "الموظفون الرئيسيون",
+    "focus-documents": "الوثائق المحورية",
+    "customize-columns": "تخصيص الأعمدة",
+    "columns": "الأعمدة",
+    "add-section": "إضافة قسم",
+    "no-results": "لا توجد نتائج.",
+    "rows-selected": "صف محدد.",
+    "rows-per-page": "صفوف لكل صفحة",
+    "page": "صفحة",
+    "of": "من",
+    "go-to-first-page": "الذهاب للصفحة الأولى",
+    "go-to-previous-page": "الذهاب للصفحة السابقة",
+    "go-to-next-page": "الذهاب للصفحة التالية",
+    "go-to-last-page": "الذهاب للصفحة الأخيرة",
+    "loading": "جاري التحميل",
+    "error": "خطأ",
+    "saving": "جاري الحفظ",
+    "submit": "إرسال",
+    "desktop": "سطح المكتب",
+    "mobile": "الجوال",
+    "showing-total-visitors": "عرض إجمالي الزوار لآخر 6 أشهر",
+    "trending-up": "يتجه للأعلى بنسبة 5.2% هذا الشهر",
+    "in-progress": "قيد التنفيذ",
+    "not-started": "لم يبدأ"
+  },
+  "months": {
+    "january": "يناير",
+    "february": "فبراير",
+    "march": "مارس",
+    "april": "أبريل",
+    "may": "مايو",
+    "june": "يونيو"
+  },
+  "user-menu": {
+    "account": "الحساب",
+    "billing": "الفواتير",
+    "notifications": "الإشعارات",
+    "log-out": "تسجيل الخروج"
+  },
+  "documents": {
+    "documents": "الوثائق",
+    "more": "المزيد",
+    "open": "فتح",
+    "share": "مشاركة",
+    "delete": "حذف"
+  },
+  "reviewers": {
+    "eddie-lake": "إدي ليك",
+    "jamik-tashpulatov": "جاميك تاشبولاتوف",
+    "emily-whalen": "إيميلي والين"
+  }
+}

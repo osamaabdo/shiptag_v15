@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "operations": "Operations",
+    "e-invoice": "e-invoice",
+    "products": "Products",
+    "shipments": "Shipments",
+    "reports": "Reports",
+    "search": "Search",
+    "get-help": "Get Help",
+    "settings": "Settings",
+    "quick-create": "Quick Create"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "recent-shipments": "Recent Shipments"
+  },
+  "cards": {
+    "total-shipments": "Total Shipments",
+    "new-customers": "New Customers",
+    "active-accounts": "Active Accounts",
+    "growth-rate": "Growth Rate",
+    "vs-last-month": "vs. last month"
+  },
+  "charts": {
+    "domestic": "Domestic",
+    "international": "International",
+    "express": "Express",
+    "economy": "Economy",
+    "shipment-breakdown": "Shipment Breakdown",
+    "carrier-breakdown": "Carrier Breakdown",
+    "by-shipment-volume": "By Shipment Volume",
+    "by-type": "By Type",
+    "total-shipments": "Total Shipments",
+    "showing-total-shipments": "Showing total shipments for the selected period",
+    "shipments": "Shipments",
+    "last-3-months": "Last 3 months",
+    "last-30-days": "Last 30 days",
+    "last-7-days": "Last 7 days",
+    "dhl": "DHL",
+    "fedex": "FedEx",
+    "aramex": "Aramex",
+    "ups": "UPS",
+    "other": "Other"
+  },
+  "common": {
+    "shiptag": "ShipTag"
+  },
+  "accessibility": {
+    "toggle-language": "Toggle Language",
+    "toggle-theme": "Toggle Theme",
+    "quick-create-tooltip": "Quick Create",
+    "toggle-sidebar": "Toggle Sidebar"
+  },
+  "table": {
+    "drag-to-reorder": "Drag to reorder",
+    "select-all": "Select all",
+    "select-row": "Select row",
+    "header": "Header",
+    "section-type": "Section Type",
+    "status": "Status",
+    "done": "Done",
+    "target": "Target",
+    "limit": "Limit",
+    "reviewer": "Reviewer",
+    "assign-reviewer": "Assign reviewer",
+    "open-menu": "Open menu",
+    "edit": "Edit",
+    "make-copy": "Make a copy",
+    "favorite": "Favorite",
+    "delete": "Delete",
+    "view": "View",
+    "select-view": "Select a view",
+    "outline": "Outline",
+    "past-performance": "Past Performance",
+    "key-personnel": "Key Personnel",
+    "focus-documents": "Focus Documents",
+    "customize-columns": "Customize Columns",
+    "columns": "Columns",
+    "add-section": "Add Section",
+    "no-results": "No results.",
+    "rows-selected": "row(s) selected.",
+    "rows-per-page": "Rows per page",
+    "page": "Page",
+    "of": "of",
+    "go-to-first-page": "Go to first page",
+    "go-to-previous-page": "Go to previous page",
+    "go-to-next-page": "Go to next page",
+    "go-to-last-page": "Go to last page",
+    "loading": "Loading",
+    "error": "Error",
+    "saving": "Saving",
+    "submit": "Submit",
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "showing-total-visitors": "Showing total visitors for the last 6 months",
+    "trending-up": "Trending up by 5.2% this month",
+    "in-progress": "In Progress",
+    "not-started": "Not Started"
+  },
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June"
+  },
+  "user-menu": {
+    "account": "Account",
+    "billing": "Billing",
+    "notifications": "Notifications",
+    "log-out": "Log out"
+  },
+  "documents": {
+    "documents": "Documents",
+    "more": "More",
+    "open": "Open",
+    "share": "Share",
+    "delete": "Delete"
+  },
+  "reviewers": {
+    "eddie-lake": "Eddie Lake",
+    "jamik-tashpulatov": "Jamik Tashpulatov",
+    "emily-whalen": "Emily Whalen"
+  }
+}
