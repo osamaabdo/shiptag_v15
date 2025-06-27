@@ -60,6 +60,53 @@ This is a **ShipTag** shipping and logistics management platform built with:
 - CSS custom properties for chart colors
 - RTL-aware layouts and typography
 
+### API Layer Architecture
+
+**Mock API Backend Structure:**
+- Implement a **mock API backend layer** in a top-level `backend/` folder:
+  - API logic lives in `backend/handlers/{module}.ts`
+  - Mocked data lives in `backend/mocks/{module}.ts`
+  - Utility functions (e.g. latency simulation) in `backend/utils/`
+- Frontend accesses data through `lib/api/{module}.ts` only (acts as a wrapper)
+- Use TypeScript types in `types/{module}.ts`
+- All data access must go through this API layer
+
+**API Layer Requirements:**
+- Simulate real API behavior (pagination, filters, sorting, etc.)
+- Be designed to easily swap with an external Fastify backend
+- Include a bearer token from `getAccessTokenFromClient()` in the `Authorization` header
+- Never hardcode tokens or assume a specific auth provider
+- Use `process.env.NEXT_PUBLIC_API_BASE` for all fetch URLs
+- Simulate appropriate delays using utility functions
+
+**Standard File Structure for Features:**
+```
+/frontend
+  /app/(dashboard)/{feature}/page.tsx
+  /components/{feature}/
+    - {Feature}Table.tsx
+    - {Feature}Filters.tsx
+    - {Feature}Actions.tsx
+    - etc.
+  /lib/api/{feature}.ts
+  /types/{feature}.ts
+  /utils/getAccessTokenFromClient.ts
+
+/backend
+  /handlers/{feature}.ts
+  /mocks/{feature}.ts
+  /utils/simulateLatency.ts
+```
+
+**Data Handling Patterns:**
+- All fetch calls must:
+  - Go through the `lib/api/{module}.ts` module
+  - Internally delegate to `backend/handlers/{module}.ts`
+  - Use types defined in `types/{module}.ts`
+  - Include bearer token from `getAccessTokenFromClient()` in `Authorization` header
+  - Use `process.env.NEXT_PUBLIC_API_BASE` as the base URL
+- Simulate delay, filtering, sorting, and pagination logic in the mock API
+
 ### Important Files
 
 - `middleware.ts` - Handles i18n routing and locale detection
@@ -76,6 +123,8 @@ This is a **ShipTag** shipping and logistics management platform built with:
 - Charts use custom tooltip/legend components with proper typing
 - All UI components follow Radix UI patterns with forwardRef
 - Data is currently mock data from `data.json` files
+- All UI components must come from the existing UI library (ShadCN/Radix UI)
+- Use existing **design system** (ShadCN, TailwindCSS, etc.) and **design tokens**
 
 ## Database Architecture
 
@@ -118,8 +167,7 @@ Current frontend uses JSON mock data that should map to these database entities:
 
 ### Styling Approach
 
-- Utility-first with TailwindCSS
-- Component variants using `class-variance-authority`
-- Dark mode support with CSS custom properties
-- RTL layout support for Arabic locale
-- Responsive design with mobile-first approach
+- Utility-first with TailwindCSS V4
+- Dark mode support 
+- RTL layout support for Arabic locale using native Tailwindcss v4 support
+- Responsive design
