@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { ChartAreaInteractive } from "@/components/chart-area-interactive"
 import { ChartBarBreakdown } from "@/components/chart-bar-breakdown"
 import { ChartDonutBreakdown } from "@/components/chart-donut-breakdown"
-import { DataTable } from "@/components/data-table"
+import { DataTable } from "@/components/proposal-data-table"
 import { SectionCards } from "@/components/section-cards"
 import { SiteLayout } from "@/components/site-layout"
 

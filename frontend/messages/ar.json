@@ -44,6 +44,44 @@
     "ups": "يو بي إس",
     "other": "أخرى"
   },
+  "shipments": {
+    "title": "الشحنات",
+    "subtitle": "إدارة شحناتك",
+    "newShipment": "شحنة جديدة",
+    "search": "البحث في الشحنات...",
+    "filters": "الفلاتر",
+    "bulkActions": {
+      "markDelivered": "وضع علامة كمسلم",
+      "cancel": "إلغاء الشحنة",
+      "payNow": "ادفع الآن"
+    },
+    "status": {
+      "all": "الكل",
+      "pending": "معلق",
+      "in_transit": "في الطريق",
+      "out_for_delivery": "خارج للتسليم",
+      "delivered": "تم التسليم",
+      "returned": "مُرتجع",
+      "cancelled": "ملغي",
+      "on_hold": "قيد الانتظار",
+      "preparing": "قيد التحضير"
+    },
+    "table": {
+      "orderInfo": "معلومات الطلب",
+      "customer": "العميل",
+      "source": "المصدر",
+      "items": "العناصر",
+      "carrier": "شركة الشحن",
+      "payment": "الدفع",
+      "status": "الحالة",
+      "tracking": "التتبع"
+    },
+    "emptyState": {
+      "noResults": "لا توجد شحنات تطابق الفلاتر",
+      "clearFilters": "مسح الفلاتر",
+      "noShipments": "لا توجد شحنات بعد — ابدأ بإنشاء طلبك الأول."
+    }
+  },
   "common": {
     "shiptag": "شيب تاغ"
   },

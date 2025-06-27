@@ -44,6 +44,44 @@
     "ups": "UPS",
     "other": "Other"
   },
+  "shipments": {
+    "title": "Shipments",
+    "subtitle": "Manage your shipments",
+    "newShipment": "New Shipment",
+    "search": "Search shipments...",
+    "filters": "Filters",
+    "bulkActions": {
+      "markDelivered": "Mark as Delivered",
+      "cancel": "Cancel Shipment",
+      "payNow": "Pay Now"
+    },
+    "status": {
+      "all": "All",
+      "pending": "Pending",
+      "in_transit": "In Transit",
+      "out_for_delivery": "Out for Delivery",
+      "delivered": "Delivered",
+      "returned": "Returned",
+      "cancelled": "Cancelled",
+      "on_hold": "On Hold",
+      "preparing": "Preparing"
+    },
+    "table": {
+      "orderInfo": "Order Info",
+      "customer": "Customer",
+      "source": "Source",
+      "items": "Items",
+      "carrier": "Carrier",
+      "payment": "Payment",
+      "status": "Status",
+      "tracking": "Tracking"
+    },
+    "emptyState": {
+      "noResults": "No shipments match your filters",
+      "clearFilters": "Clear filters",
+      "noShipments": "No shipments yet — start by creating your first order."
+    }
+  },
   "common": {
     "shiptag": "ShipTag"
   },

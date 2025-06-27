@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useTranslations, useLocale } from 'next-intl'
+import Link from 'next/link'
 import {
   IconAdjustments,
   IconBox,
@@ -83,10 +84,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href={`/${locale}/dashboard`} className="flex items-center gap-2">
+              <Link href={`/${locale}/dashboard`} className="flex items-center gap-2">
                 <ShipTagLogo />
                 <span className="text-lg font-semibold">{tCommon('shiptag')}</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
