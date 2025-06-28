@@ -1,12 +1,11 @@
 import { getAccessTokenFromClient } from '@/utils/getAccessTokenFromClient';
+import { API_BASE_URL } from './config';
 import type { 
   ShipmentQueryParams, 
   PaginatedShipments, 
   ShipmentStats, 
   BulkActionRequest 
 } from '@/types/shipments';
-
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || '';
 
 async function fetchWithAuth(url: string, options: RequestInit = {}) {
   const token = getAccessTokenFromClient();
@@ -38,17 +37,17 @@ export async function getShipments(params: ShipmentQueryParams = {}): Promise<Pa
     }
   });
   
-  const url = `${API_BASE}/api/shipments?${queryParams.toString()}`;
+  const url = `${API_BASE_URL}/shipments?${queryParams.toString()}`;
   return fetchWithAuth(url);
 }
 
 export async function getShipmentStats(): Promise<ShipmentStats> {
-  const url = `${API_BASE}/api/shipments?endpoint=stats`;
+  const url = `${API_BASE_URL}/shipments/stats`;
   return fetchWithAuth(url);
 }
 
 export async function performBulkAction(request: BulkActionRequest): Promise<{ success: boolean; updatedCount: number }> {
-  const url = `${API_BASE}/api/shipments/bulk-action`;
+  const url = `${API_BASE_URL}/shipments/bulk-action`;
   return fetchWithAuth(url, {
     method: 'POST',
     body: JSON.stringify(request),

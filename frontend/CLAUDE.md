@@ -32,6 +32,8 @@ This is a **ShipTag** shipping and logistics management platform built with:
 - **Radix UI** components with custom theming
 - **Recharts** for data visualization
 - **Turbopack** for fast development builds
+- Backend: Fastify with TypeScript
+
 
 ### Key Architecture Patterns
 
