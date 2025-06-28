@@ -2,18 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { Plus, Search, Filter } from 'lucide-react';
+import { Plus, Search } from 'lucide-react';
 import { SiteLayout } from '@/components/site-layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuCheckboxItem,
-} from '@/components/ui/dropdown-menu';
 import { StatusTabs } from '@/components/shipments/StatusTabs';
 import { ShipmentTable } from '@/components/shipments/ShipmentTable';
 import { BulkActionsBar } from '@/components/shipments/BulkActionsBar';
@@ -109,13 +101,6 @@ export default function ShipmentsPage() {
     }
   };
 
-  const handleFilterChange = (filterType: string, value: string | boolean | undefined) => {
-    setQueryParams(prev => ({
-      ...prev,
-      [filterType]: value,
-      page: 1,
-    }));
-  };
 
   return (
     <SiteLayout>
@@ -145,85 +130,6 @@ export default function ShipmentsPage() {
           </form>
 
           <div className="flex gap-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm">
-                  <Filter className="mr-2 h-4 w-4" />
-                  {t('filters')}
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Carrier</DropdownMenuLabel>
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.carrier === 'dhl'}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('carrier', checked ? 'dhl' : undefined)
-                  }
-                >
-                  DHL
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.carrier === 'fedex'}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('carrier', checked ? 'fedex' : undefined)
-                  }
-                >
-                  FedEx
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.carrier === 'ups'}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('carrier', checked ? 'ups' : undefined)
-                  }
-                >
-                  UPS
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>Source</DropdownMenuLabel>
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.source === 'App'}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('source', checked ? 'App' : undefined)
-                  }
-                >
-                  App
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.source === 'Web'}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('source', checked ? 'Web' : undefined)
-                  }
-                >
-                  Web
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.source === 'Platform'}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('source', checked ? 'Platform' : undefined)
-                  }
-                >
-                  Platform
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.source === 'API'}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('source', checked ? 'API' : undefined)
-                  }
-                >
-                  API
-                </DropdownMenuCheckboxItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuCheckboxItem
-                  checked={queryParams.codOnly === true}
-                  onCheckedChange={(checked) => 
-                    handleFilterChange('codOnly', checked || undefined)
-                  }
-                >
-                  COD Only
-                </DropdownMenuCheckboxItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             <Button size="sm">
               <Plus className="mr-2 h-4 w-4" />
               {t('newShipment')}

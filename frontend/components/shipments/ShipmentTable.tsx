@@ -4,13 +4,21 @@ import { useMemo } from 'react';
 import { ColumnDef } from '@tanstack/react-table';
 import { format } from 'date-fns';
 import { DataTable } from '@/components/ui/data-table';
+import { DataTableColumnHeader } from '@/components/ui/data-table-column-header';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useTranslations } from 'next-intl';
 import { CarrierBadge } from './CarrierBadge';
-import { CustomerTooltip } from './CustomerTooltip';
-import { ItemsTooltipTable } from './ItemsTooltipTable';
+import { ShipmentTooltip } from './ShipmentTooltip';
 import { TrackingLinkIcon } from './TrackingLinkIcon';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import type { Shipment } from '@/types/shipments';
 
 interface ShipmentTableProps {
@@ -63,7 +71,12 @@ export function ShipmentTable({
       },
       {
         accessorKey: 'id',
-        header: t('table.orderInfo'),
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            title={t('table.orderInfo')}
+          />
+        ),
         cell: ({ row }) => (
           <div>
             <div className="font-medium">{row.original.id}</div>
@@ -75,42 +88,173 @@ export function ShipmentTable({
       },
       {
         accessorKey: 'user.name',
-        header: t('table.customer'),
-        cell: ({ row }) => (
-          <CustomerTooltip
-            name={row.original.user.name}
-            location={row.original.user.location}
-            address={row.original.user.address}
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            title={t('table.customer')}
           />
         ),
+        cell: ({ row }) => {
+          const address = row.original.user.address;
+          const formatAddress = () => {
+            const parts = [
+              address.street,
+              address.city,
+              address.state,
+              address.country,
+              address.zip,
+            ].filter(Boolean);
+            
+            return (
+              <div className="space-y-1">
+                <div className="font-medium">{address.name}</div>
+                <div className="text-sm text-muted-foreground">
+                  {parts.join(', ')}
+                </div>
+                {address.phone && (
+                  <div className="text-sm text-muted-foreground">
+                    {address.phone}
+                  </div>
+                )}
+              </div>
+            );
+          };
+
+          return (
+            <ShipmentTooltip
+              trigger={
+                <>
+                  <div className="font-medium">{row.original.user.name}</div>
+                  <div className="text-sm text-muted-foreground">{row.original.user.location}</div>
+                </>
+              }
+              content={formatAddress()}
+              contentClassName="max-w-xs"
+            />
+          );
+        },
       },
       {
         accessorKey: 'source',
-        header: t('table.source'),
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            title={t('table.source')}
+            filterOptions={[
+              { label: 'App', value: 'App' },
+              { label: 'Web', value: 'Web' },
+              { label: 'Platform', value: 'Platform' },
+              { label: 'API', value: 'API' },
+            ]}
+          />
+        ),
         cell: ({ row }) => (
           <Badge variant="outline">{row.original.source}</Badge>
         ),
+        filterFn: (row, id, value) => {
+          return value.includes(row.getValue(id));
+        },
       },
       {
         accessorKey: 'items',
-        header: t('table.items'),
-        cell: ({ row }) => (
-          <ItemsTooltipTable items={row.original.items} />
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            title={t('table.items')}
+          />
         ),
+        cell: ({ row }) => {
+          const items = row.original.items;
+          const totalAmount = items.reduce((sum, item) => sum + item.total, 0);
+          
+          return (
+            <ShipmentTooltip
+              trigger={
+                <span className="font-medium">
+                  {items.length}
+                </span>
+              }
+              content={
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="h-8 px-2">Product</TableHead>
+                      <TableHead className="h-8 px-2 text-center">Qty</TableHead>
+                      <TableHead className="h-8 px-2 text-right">Price</TableHead>
+                      <TableHead className="h-8 px-2 text-right">Total</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {items.map((item) => (
+                      <TableRow key={item.id}>
+                        <TableCell className="px-2 py-1.5 text-sm">
+                          {item.name}
+                        </TableCell>
+                        <TableCell className="px-2 py-1.5 text-center text-sm">
+                          {item.quantity}
+                        </TableCell>
+                        <TableCell className="px-2 py-1.5 text-right text-sm">
+                          ${item.price.toFixed(2)}
+                        </TableCell>
+                        <TableCell className="px-2 py-1.5 text-right text-sm">
+                          ${item.total.toFixed(2)}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                    <TableRow>
+                      <TableCell colSpan={3} className="px-2 py-1.5 text-right font-medium">
+                        Total:
+                      </TableCell>
+                      <TableCell className="px-2 py-1.5 text-right font-medium">
+                        ${totalAmount.toFixed(2)}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              }
+              contentClassName="p-0"
+            />
+          );
+        },
       },
       {
         accessorKey: 'carrier.name',
-        header: t('table.carrier'),
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            title={t('table.carrier')}
+            filterOptions={[
+              { label: 'DHL', value: 'DHL' },
+              { label: 'FedEx', value: 'FedEx' },
+              { label: 'UPS', value: 'UPS' },
+              { label: 'USPS', value: 'USPS' },
+              { label: 'Canada Post', value: 'Canada Post' },
+            ]}
+          />
+        ),
         cell: ({ row }) => (
           <CarrierBadge
             carrier={row.original.carrier}
             codAmount={row.original.cod_amount}
           />
         ),
+        filterFn: (row, id, value) => {
+          return value.includes(row.getValue(id));
+        },
       },
       {
         accessorKey: 'payment_status',
-        header: t('table.payment'),
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            title={t('table.payment')}
+            filterOptions={[
+              { label: 'Paid', value: 'Paid' },
+              { label: 'Unpaid', value: 'Unpaid' },
+              { label: 'COD', value: 'COD' },
+            ]}
+          />
+        ),
         cell: ({ row }) => (
           <Badge 
             variant={row.original.payment_status === 'Paid' ? 'outline' : 'secondary'}
@@ -118,15 +262,36 @@ export function ShipmentTable({
             {row.original.payment_status}
           </Badge>
         ),
+        filterFn: (row, id, value) => {
+          return value.includes(row.getValue(id));
+        },
       },
       {
         accessorKey: 'status',
-        header: t('table.status'),
+        header: ({ column }) => (
+          <DataTableColumnHeader
+            column={column}
+            title={t('table.status')}
+            filterOptions={[
+              { label: t('status.pending'), value: 'pending' },
+              { label: t('status.preparing'), value: 'preparing' },
+              { label: t('status.in_transit'), value: 'in_transit' },
+              { label: t('status.out_for_delivery'), value: 'out_for_delivery' },
+              { label: t('status.delivered'), value: 'delivered' },
+              { label: t('status.returned'), value: 'returned' },
+              { label: t('status.cancelled'), value: 'cancelled' },
+              { label: t('status.on_hold'), value: 'on_hold' },
+            ]}
+          />
+        ),
         cell: ({ row }) => (
           <Badge variant={statusVariants[row.original.status] || 'default'}>
             {t(`status.${row.original.status}`)}
           </Badge>
         ),
+        filterFn: (row, id, value) => {
+          return value.includes(row.getValue(id));
+        },
       },
       {
         accessorKey: 'tracking_number',
