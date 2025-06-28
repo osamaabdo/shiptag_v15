@@ -119,19 +119,19 @@ export default function ShipmentsPage() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <form onSubmit={handleSearch} className="flex gap-2 flex-1 max-w-sm">
             <div className="relative flex-1">
-              <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="absolute left-2 rtl:right-2 rtl:left-auto top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 placeholder={t('search')}
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
-                className="pl-8"
+                className="pl-8 rtl:pr-8 rtl:pl-0"
               />
             </div>
           </form>
 
           <div className="flex gap-2">
             <Button size="sm">
-              <Plus className="mr-2 h-4 w-4" />
+              <Plus className="mr-2 rtl:ml-2 rtl:mr-0 h-4 w-4" />
               {t('newShipment')}
             </Button>
           </div>

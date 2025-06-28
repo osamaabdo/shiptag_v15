@@ -102,20 +102,20 @@ export function DataTableColumnHeader<TData, TValue>({
   const isFiltered = selectedValues.size > 0;
 
   return (
-    <div className={cn('flex items-center space-x-2', className)}>
+    <div className={cn('flex items-center space-x-2 rtl:space-x-reverse', className)}>
       <Button
         variant="ghost"
         size="sm"
-        className="-ml-3 h-8 data-[state=open]:bg-accent"
+        className="-ml-3 rtl:-mr-3 rtl:ml-0 h-8 data-[state=open]:bg-accent"
         onClick={handleSort}
         disabled={!canSort}
       >
         <span>{title}</span>
         {canSort && (
           <>
-            {sortingState === 'asc' && <ArrowUp className="ml-2 h-4 w-4" />}
-            {sortingState === 'desc' && <ArrowDown className="ml-2 h-4 w-4" />}
-            {sortingState === false && <ArrowUpDown className="ml-2 h-4 w-4" />}
+            {sortingState === 'asc' && <ArrowUp className="ml-2 rtl:mr-2 rtl:ml-0 h-4 w-4" />}
+            {sortingState === 'desc' && <ArrowDown className="ml-2 rtl:mr-2 rtl:ml-0 h-4 w-4" />}
+            {sortingState === false && <ArrowUpDown className="ml-2 rtl:mr-2 rtl:ml-0 h-4 w-4" />}
           </>
         )}
       </Button>

@@ -205,7 +205,7 @@ export function DataTable<TData, TValue>({
             Page {table.getState().pagination.pageIndex + 1} of{" "}
             {table.getPageCount()}
           </div>
-          <div className="ml-auto flex items-center gap-2 lg:ml-0">
+          <div className="ml-auto rtl:mr-auto rtl:ml-0 flex items-center gap-2 lg:ml-0 lg:rtl:mr-0">
             <Button
               variant="outline"
               className="hidden h-8 w-8 p-0 lg:flex"
