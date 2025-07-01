@@ -13,7 +13,6 @@ import {
   IconSearch,
   IconSettings,
   IconShoppingCart,
-  IconTruckDelivery,
 } from "@tabler/icons-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -65,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     { title: t('operations'), url: "#", icon: IconAdjustments },
     { title: t('e-invoice'), url: "#", icon: IconFileInvoice },
     { title: t('products'), url: "#", icon: IconBox },
-    { title: t('shipments'), url: `/${locale}/shipments`, icon: IconTruckDelivery },
+    // { title: t('shipments'), url: `/${locale}/shipments`, icon: IconTruckDelivery },
     { title: t('reports'), url: "#", icon: IconReport },
     { title: t('search'), url: "#", icon: IconSearch },
   ]
